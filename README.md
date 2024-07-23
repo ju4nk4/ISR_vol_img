@@ -3,7 +3,7 @@ Developers: Juan Araújo, Francisco López
 
 ## Supporting code for the manuscript:
 Efficient Computation and visualization of Ionospheric Volumetric Images for the enhanced interpretation of Incoherent Scatter Radar Data,
-Juan Araújo<sup>c</sup>, Francisco López, Stefan Johansson, Assar Westman, Madelen Bodin
+Juan Araújo<sup>c</sup>, Francisco López, Stefan Johansson, Assar Westman, Madelen Bodin\
 <sup>c</sup> Corresponding author. 
 
 ## Software requirements (Linux systems)
