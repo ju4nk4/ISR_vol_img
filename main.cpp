@@ -1,12 +1,4 @@
 // 2024-07-01, Juan Carlos Araújo, ju4nk4@gmail.com
-//
-// Loads ISR data downloaded from the from Madrigal
-//
-// Compile:
-
-
-// Run:
-
 
 #include <getopt.h>
 #include <stdio.h>
@@ -29,7 +21,6 @@
 #include <unordered_map>
 #include <vector>
 
-//#include "interpolation_basic_parallel.hpp"
 #include "interpolation_multi_parallel.hpp"
 #include "omp.h"
 
@@ -41,7 +32,6 @@
 using namespace std;
 
 const double Re = 6378.137; unsigned int NUM_THREADS = 1;
-
 
 class Ionosradar {
  private:
@@ -160,7 +150,7 @@ class Ionosradar {
   void load_radar_data_info(const std::string& directory,
                             const std::string& filename) {
     data_name = filename;
-    std::string path = directory + "data/" + filename + ".hdf5";
+    std::string path = directory + "data/" + filename;
     data_path = path;
     string spath = filename;
 
@@ -287,7 +277,7 @@ class Ionosradar {
   }
   // -----------------------------------------------------------------------------------
   /*
-  % Routine: /Dropbox/postdoc-data-Eiscat3D/projects/best_sq_outline/main.m
+  % Routine: projects/best_sq_outline/main.m
   % Try to find the best rotation of a square so that the radar beams (projected
   to a plane cut) % fit nicely inside. We want to parametrize the faces of the
   square to have a polar shape. % Good for AMISR data, but fails for arbitrary
@@ -1939,8 +1929,7 @@ int main(int argc, char** argv) {
   // bool specified_times = false;
 
   string directory = "",
-         filename =
-             "ras200113.004";  //   /// ras151208.004 // "ras161121.002"; //
+         filename = "ras200113.004.hdf5";  //   /// ras151208.004 // "ras161121.002"; //
 
   const char* const short_options = "a:n:s:r:i:f:p:kvF:t:d:D:bV";
   // A string listing valid short options letters.
@@ -2014,7 +2003,7 @@ int main(int argc, char** argv) {
   printf("%% Input:\n");
   if (directory != "") directory = directory + "/";
 
-  const std::string path = directory + "data/" + filename + ".hdf5";
+  const std::string path = directory + "data/" + filename;
   printf("%% \tDirectory: %s\n%% \tData file: %s\n", directory.c_str(),
          path.c_str());
 

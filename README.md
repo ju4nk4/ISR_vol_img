@@ -12,10 +12,10 @@ Juan Araújo<sup>c</sup>, Francisco López, Stefan Johansson, Assar Westman, Mad
 + OpenGL Mathematics (GLM), https://www.opengl.org/sdk/libs/GLM/
 
 ## ISR data
-The data used for this application is in .hdf5 format and must be stored under the directory data/
+The data used for this application is in .hdf5 format and must be stored under the directory data/\
 Download AMISR data from http://cedar.openmadrigal.org/, following the instructions provided there.
 
-Examples of data files used in the manuscript:
+Examples of data files used in the manuscript:\
 pfa150317.004.hdf5, pfa170128.002.hdf5, pfa200116.002.hdf5, ras161121.002.hdf5, ras190510.004.hdf5, ras200113.004.hdf5
 
 ## Compilation  (Linux systems):
@@ -39,5 +39,5 @@ pfa150317.004.hdf5, pfa170128.002.hdf5, pfa200116.002.hdf5, ras161121.002.hdf5, 
 
 ## Output:
 The process of the computation of the volumetric images is output on the terminal prompt.
-The result of the computation of the volumetric images is written in .vtk files and stored under the directory output/ 
+The result of the computation of the volumetric images is written in .vtk files and stored under the directory output/ \
 Output .vtk files can be visualized on the Paraview software (https://www.paraview.org/) using volume rendering.
