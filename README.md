@@ -32,10 +32,10 @@ pfa150317.004.hdf5, pfa170128.002.hdf5, pfa200116.002.hdf5, ras161121.002.hdf5, 
 + -p: Shepard parameter
 
 ### Examples:
-+ ./main -F ras161121.002
-+ ./main -F ras161121.002 -n 64
-+ ./main -F ras161121.002 -n 64 -p 3 
-+ ./main -F ras161121.002 -n 64 -p 3 -t 8
++ ./main -F ras161121.002.hdf5
++ ./main -F ras161121.002.hdf5 -n 64
++ ./main -F ras161121.002.hdf5 -n 64 -p 3 
++ ./main -F ras161121.002.hdf5 -n 64 -p 3 -t 8
 
 ## Output:
 The process of the computation of the volumetric images is output on the terminal prompt.
