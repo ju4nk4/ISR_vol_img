@@ -26,10 +26,10 @@ pfa150317.004.hdf5, pfa170128.002.hdf5, pfa200116.002.hdf5, ras161121.002.hdf5, 
 ./main -F [filename] -[options]
 
 ### Options:
--n: number of 1D interpolation points. Total interpolation points is the cube.
--v: verbose on interpolation process
--t: number of threads in parallel interpolation
--p: Shepard parameter
++ -n: number of 1D interpolation points. Total interpolation points is the cube.
++ -v: verbose on interpolation process
++ -t: number of threads in parallel interpolation
++ -p: Shepard parameter
 
 ### Examples:
 + ./main -F ras161121.002
