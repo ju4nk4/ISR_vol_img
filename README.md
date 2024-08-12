@@ -1,5 +1,5 @@
 # ISR_vol_img
-Developers: Juan Araújo (UmU), Francisco López (UmU).\ 
+Developers: Juan Araújo (UmU), Francisco López (UmU). \ 
 UmU: Umeå University.
 
 ## Supporting code for the manuscript:
