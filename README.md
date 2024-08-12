@@ -55,9 +55,9 @@ The computation of the volumetric images utilizes a specialized version of the s
 Donald Shepard. A two-dimensional interpolation function for irregularly-spaced data. In Proceedings of the 1968 23rd ACM national conference, pages 517–524, 1968. \
 In the project, we extended the Shepard algorithm for including: gradient estimations, filtering of missing data, efficiency and parallelization as well as vectorized operations from processor level. All these are novel contributions which are briefly described in our manuscript.
 
-+ In our implementation, we modified the Shepard implementation from John Burkardt \ 
++ In our implementation, we modified the Shepard implementation from John Burkardt,  
 https://people.sc.fsu.edu/~jburkardt/
 
-+ For Convex-Hull computations, we used the implementation by Miguel Vieira \
++ For Convex-Hull computations, we used the implementation by Miguel Vieira, 
 https://github.com/MiguelVieira
 
