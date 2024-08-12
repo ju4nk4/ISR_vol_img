@@ -53,7 +53,7 @@ Output .vtk files can be visualized on the Paraview software (https://www.paravi
 ### Acknowledgment:
 The computation of the volumetric images utilizes a specialized version of the so-called Shepard interpolation \
 Donald Shepard. A two-dimensional interpolation function for irregularly-spaced data. In Proceedings of the 1968 23rd ACM national conference, pages 517–524, 1968. \
-In the project, we extended the Shepard algorithm for including: gradient estimations, multi-scalar interpolation, filtering of missing data, efficiency and parallelization as well as vectorized operations at processor level. All these are novel contributions which are briefly described in our manuscript.
+In the project, we extended the Shepard algorithm for including: gradient estimation plus correction, filtering of missing data, efficiency and parallelization as well as vectorized operations at processor level. All these are novel contributions which are briefly described in our manuscript.
 
 + In our implementation, we modified the Shepard implementation from John Burkardt,  
 https://people.sc.fsu.edu/~jburkardt/
