@@ -1,6 +1,6 @@
 #include <array>
-#include <glm/glm.hpp>
-#include <string>
+//#include <glm/glm.hpp>
+//#include <string>
 #include <vector>
 
 void interpMultiVecParallel(float p, unsigned nd, const unsigned n_scalars,

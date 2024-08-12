@@ -1,12 +1,12 @@
 // 2022-05-18, Juan Carlos Araújo, ju4nk4@gmail.com
 
-#include "glm/glm.hpp"
-#include "glm/vec3.hpp"
-#include "glm/ext.hpp" // printing matrices
-#include <glm/gtx/string_cast.hpp>
+#include "lac.hpp"
 
 #define GLM_ENABLE_EXPERIMENTAL
 #define normalizVec3(val) ((val + glm::dvec3(glm::abs(box.left), glm::abs(box.bottom), glm::abs(box.back))) / normalizedEdges) * glm::dvec3(width, height, depth)
+
+
+using namespace std;
 
 // https://stackoverflow.com/questions/1903954/is-there-a-standard-sign-function-signum-sgn-in-c-c
 double sign(double x) {

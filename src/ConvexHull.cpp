@@ -3,19 +3,10 @@
 // Modified by Juan Araújo, ju4nk4@gmail.com, from the code available at:
 // https://github.com/MiguelVieira/ConvexHull2D/blob/master/ConvexHull.cpp
 
-#include <algorithm>
-#include <cmath>
-#include <iostream>
-#include <vector>
+#include "ConvexHull.hpp"
+
 
 using namespace std;
-
-struct point2d {
-	float x;
-	float y;
-
-	point2d(float xIn, float yIn) : x(xIn), y(yIn) { } 
-};
 
 // The z-value of the cross product of segments 
 // (a, b) and (a, c). Positive means c is ccw

@@ -20,6 +20,7 @@
  * DP: Data Point
  */
 
+__attribute__((optimize("-O3")))
 void derivativesMultiVecParallel(const unsigned NS, const unsigned dim,
                                  const unsigned ND, const unsigned PADDED_ND,
                                  const float c_nu, const float* const xd,
@@ -349,6 +350,7 @@ void derivativesMultiVecParallel(const unsigned NS, const unsigned dim,
  * @param NC           number of cores used in the computation
  * @param Fi           Interpolated scalars (the result)
  */
+__attribute__((optimize("-O3")))
 void interpMultiVecParallel(float p, const unsigned ND, const unsigned NS,
                             const float* xd, const float* fd, unsigned NI,
                             float* xi, bool estimate_derivatives, float c_nu,
@@ -583,6 +585,7 @@ void interpMultiVecParallel(float p, const unsigned ND, const unsigned NS,
 }
 
 // Preparing data for volume interpolation for NEL data
+__attribute__((optimize("-O3")))
 void spInterpMultiVecParallel(const unsigned ND, const unsigned NS,
                               const unsigned nx, const unsigned ny,
                               const unsigned nz, const unsigned NI, float* xi,
@@ -626,6 +629,7 @@ float* allocateAlignedResult(const unsigned NI, const unsigned NS,
   return Fi;
 }
 
+__attribute__((optimize("-O3")))
 void unpackInterpolation(const unsigned NI, const unsigned NS,
                          const unsigned VEC_WIDTH, float* Fi,
                          std::vector<std::array<double, 5>>& result) {

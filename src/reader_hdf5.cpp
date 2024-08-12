@@ -1,13 +1,10 @@
 // 2022-05-18, Juan Carlos Araújo, ju4nk4@gmail.com
 
-#include "H5Cpp.h"
-//#include "H5Exception.h"
+#include <cstring>
+#include "reader_hdf5.hpp"
 
 using namespace H5;
 
-struct Dim {
-    hsize_t cols, rows;
-};
 
 Dim getDimensions(DataSet& set) {
     DataSpace space = set.getSpace();
@@ -21,15 +18,8 @@ Dim getDimensions(DataSet& set) {
     space.getSimpleExtentDims(dims,NULL);
     return { dims[0],dims[1] };
 }
-	
 
-
-struct BeamInfo {
-	unsigned int id, index_i, index_f, num_range;
-	double elm, azm;
-};
-
-
+/*
 template<class Type>
 class Elem2D {
 private:
@@ -46,26 +36,11 @@ public:
     	delete[] _data;
     }
 };
-
-template<class Type>
-class Array2D {
-public:
-    Array2D(){}
-    Array2D(Type* data, int size) : _data(data),_size(size) {}
-
-    Elem2D<Type> operator[] (int index) {
-        return Elem2D<Type>(index*_size, _data);
-    }
-    void clear () {
-    	delete[] _data;
-    }
-private:
-    Type* _data;
-    int _size;
-};
+*/
 
 
 //----------------------------------------------------------------------------------------
+/*
 class Metadata {
 	public:
 		std::string instrument;
@@ -93,8 +68,8 @@ class Metadata {
 			printf ("Category: \t%s\n", inst_cat.c_str() );
 		}
 };
-
-void read_metadata ( string path, Metadata &meta ) {
+*/
+void read_metadata ( std::string path, Metadata &meta ) {
 // https://stackoverflow.com/questions/20778978/difficulty-parsing-hdf5-compound-data-type
 // https://stackoverflow.com/questions/13814027/reading-a-string-from-hdf5-in-c
 
@@ -124,7 +99,7 @@ void read_metadata ( string path, Metadata &meta ) {
 	};
 	
 	printf ("Reading file\n");
-	string ROOT_GROUP = "/Metadata", PAR_1D = "Experiment Parameters";
+	std::string ROOT_GROUP = "/Metadata", PAR_1D = "Experiment Parameters";
 	
 	/*
 	std::string 
@@ -176,45 +151,45 @@ void read_metadata ( string path, Metadata &meta ) {
 		
 		
 		if (strcmp(m.name, "instrument" ) == 0) {
-		    meta.instrument = string(m.value);
+		    meta.instrument = std::string(m.value);
 		    //std::cout << "\t\tFound instrument = " << meta.instrument << std::endl;
 		}
 		if (strcmp(m.name, "instrument code(s)" ) == 0) {
 		    //std::cout << "\t\tFound instrument code(s) = " << m.value << std::endl;
-		    meta.inst_code = string(m.value);
+		    meta.inst_code = std::string(m.value);
 		}
 		if (strcmp(m.name, "kind of data file" ) == 0) {
 		    //std::cout << "\t\tFound kind of data file = " << m.value << std::endl;
-		    meta.inst_kind = string(m.value);
+		    meta.inst_kind = std::string(m.value);
 		}
 		if (strcmp(m.name, "instrument category" ) == 0) {
 		    //std::cout << "\t\tFound instrument category = " << m.value << std::endl;
-		    meta.inst_cat = string(m.value);
+		    meta.inst_cat = std::string(m.value);
 		}
 		if (strcmp(m.name, "Cedar file name" ) == 0) {
 		    //std::cout << "\t\tFound Cedar file name = " << m.value << std::endl;  
-		    meta.cedar_name = string(m.value);
+		    meta.cedar_name = std::string(m.value);
 		}
 		if (strcmp(m.name, "start time" ) == 0) {
 		    //std::cout << "\t\tFound start time = " << m.value << std::endl;
-		    meta.start_t = string(m.value);
+		    meta.start_t = std::string(m.value);
 		    //read_UT_time (m.value);
 		}
 		if (strcmp(m.name, "end time" ) == 0) {
 		    //std::cout << "\t\tFound end time = " << m.value << std::endl;
-		    meta.end_t = string(m.value);
+		    meta.end_t = std::string(m.value);
 		}
 		if (strcmp(m.name, "instrument latitude" ) == 0) {
 		    //std::cout << "\t\tFound latitude = " << m.value << std::endl;
-		    meta.inst_lat = string(m.value);
+		    meta.inst_lat = std::string(m.value);
 		}
 		if (strcmp(m.name, "instrument longitude" ) == 0) {
 		    //std::cout << "\t\tFound longitude = " << m.value << std::endl;
-		    meta.inst_lon = string(m.value);
+		    meta.inst_lon = std::string(m.value);
 		}
 		if (strcmp(m.name, "instrument altitude" ) == 0) {
 		    //std::cout << "\t\tFound altitude = " << m.value << std::endl;
-		    meta.inst_alt = string(m.value);
+		    meta.inst_alt = std::string(m.value);
 		}
 		
 		counter++;
@@ -238,19 +213,19 @@ void read1DStrData(const PredType& type, const DataSet data, hsize_t offset, hsi
 	count_out[0] = offset_size;
 	memspace.selectHyperslab(H5S_SELECT_SET, count_out, offset_out);
 	
-	std::vector<string> out_data(size);
+	std::vector<std::string> out_data(size);
 	
 	//NativeType* out_data = new NativeType[size];
 	DataSpace space = data.getSpace();
 	
-	string out;
+	std::string out;
 	data.read(out, type, memspace, space);
 	// return out_data;
 	
 	// ************** NOT WORKING ************************************************
 }
 
-
+/*
 template<class NativeType>
 NativeType* read1DData(const PredType& type, const DataSet data, hsize_t offset, hsize_t offset_size, hsize_t size) {
 
@@ -270,9 +245,9 @@ NativeType* read1DData(const PredType& type, const DataSet data, hsize_t offset,
     return out_data;
 
 }
+*/
 
-
-
+/*
 template<class NativeType>
 Array2D<NativeType> read2DData(const PredType& type, const DataSet& data, const Dim& offset, const Dim& offset_size, const Dim& size) {
     DataSpace space = data.getSpace();
@@ -306,6 +281,7 @@ Array2D<NativeType> read2DData(const PredType& type, const DataSet& data, const 
     return Array2D<NativeType>(out_data,size.rows);
 
 }
+*/
 
 std::vector<Group> getAllGroups(Group& group) {
     std::vector<Group> vals;
