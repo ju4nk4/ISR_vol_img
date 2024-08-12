@@ -1,9 +1,10 @@
 # ISR_vol_img
-Developers: Juan Araújo (UmU), Francisco López (UmU). UmU: Umeå University.
+Developers: Juan Araújo (UmU), Francisco López (UmU).\ 
+UmU: Umeå University.
 
 ## Supporting code for the manuscript:
 Efficient Computation and visualization of Ionospheric Volumetric Images for the enhanced interpretation of Incoherent Scatter Radar Data,
-Juan Araújo<sup>c</sup>, Francisco López, Stefan Johansson, Assar Westman, Madelen Bodin\
+Juan Araújo<sup>c</sup>, Francisco López, Stefan Johansson, Assar Westman, Madelen Bodin, 2024.\
 <sup>c</sup> Correspondance: juan.araujo@umu.se 
 
 ### Abstract
