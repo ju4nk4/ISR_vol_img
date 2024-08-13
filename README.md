@@ -19,7 +19,8 @@ America or the upcoming EISCAT 3D (E3D) in the northern Fennoscandia region. E3D
 
 ## ISR data
 The data used for this application is in .hdf5 format and must be stored under the directory data/\
-Download AMISR data from http://cedar.openmadrigal.org/, following the instructions provided there.
+Download AMISR data from http://cedar.openmadrigal.org/, following the instructions provided there.\
+In the project, we illustrate our strategy applied to data from the Resolute Bay ISR (RISR-C) and Poker Flat (PFISR).
 
 Examples of data files used in the manuscript:\
 pfa150317.004.hdf5, pfa170128.002.hdf5, pfa200116.002.hdf5, ras161121.002.hdf5, ras190510.004.hdf5, ras200113.004.hdf5
@@ -55,7 +56,7 @@ Output .vtk files can be visualized on the Paraview software (https://www.paravi
 The computation of the volumetric images utilizes a specialized version of the so-called Shepard interpolation:
 + Donald Shepard. _A two-dimensional interpolation function for irregularly-spaced data_. In Proceedings of the 1968 23rd ACM national conference, pages 517–524, 1968.
 
-In the project, we extended the Shepard algorithm for including: gradient estimation plus correction, filtering of missing data, efficiency and parallelization as well as vectorized operations at processor level. All these are novel contributions which are briefly described in our manuscript.
+In the project, we extended the Shepard algorithm for including: gradient estimation plus correction, filtering of missing data, multi-scalar interpolation, efficiency and parallelization as well as vectorized operations at processor level. All these are novel contributions which are briefly described in our manuscript.
 
 + In our implementation, we modified the Shepard implementation from John Burkardt,\
 https://people.sc.fsu.edu/~jburkardt/
