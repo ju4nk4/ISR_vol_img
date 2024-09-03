@@ -9,7 +9,7 @@ Juan Araújo<sup>c</sup>, Francisco López, Stefan Johansson, Assar Westman, Mad
 
 ### Abstract
 Incoherent scatter radar (ISR) techniques provide reliable measurements for the analysis of ionospheric plasma. 
-Recent developments in ISR technologies allow the generation of high-resolution 3D data. Examples of such technologies employ the so-called phased-array antenna systems like the AMISR in North America or the upcoming EISCAT_3D in the Northern Fennoscandia region. 
+Recent developments in ISR technologies allow the generation of high-resolution 3D data. Examples of such technologies employ the so-called phased-array antenna systems like the AMISR in North America or the upcoming EISCAT3D in the Northern Fennoscandia region. 
 EISCAT3D will be capable of generating the highest resolution ISR datasets that have ever been measured. However, running EISCAT3D experiments will be costly in terms of energy consumption and staffing. To use these resources in the most efficient manner, we present a novel computational strategy for the generation of high-resolution and smooth volumetric ionospheric images that represent ISR data. Through real-time processing, our computational framework will enable a fast decision-making during the monitoring process, where the experimental parameters are adapted in real time as the radars monitor specific phenomena. We describe our
 strategy, which implements a flexible mesh generator along with an efficient interpolator specialized for ISR technologies. The proposed strategy is generic in the sense that it can be applied to a large variety of data sets and supports the interactive visual analysis and exploration of ionospheric data supplemented by interactive data transformations and filters.
 
