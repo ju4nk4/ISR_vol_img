@@ -43,6 +43,8 @@ H5::PredType
 
 */
 
+// Threshold NAN in ne
+float TH_NAN_NE = 0.5f;
 
 #include "Ionosradar.hpp"
 
@@ -214,8 +216,13 @@ void Ionosradar::load_interpolate_Ion_in_time() {
 
       collect_BeamData_Large(beam_closest_z_axis, z_beam_data, t);
       load_ISR_data_in_time(radar_data, t);
-
-      sparseInterpolationAlgorithm_large(t, radar_data, "test_conductivities");
+      float ratio_NAN_ne = ratioNANne(radar_data);
+      if (ratio_NAN_ne < TH_NAN_NE) { 
+        sparseInterpolationAlgorithm_large(t, radar_data, "test_conductivities");
+      }
+      else {
+        produceNANResult(t);
+      }
 
       radar_data.clear();
       z_beam_data.clear();
@@ -1845,6 +1852,34 @@ void Ionosradar::scaled3D_TI_Fourier_CH_Poly_top_grid (
   }
   // -----------------------------------------------------------------------------------
    
+float Ionosradar::ratioNANne(const std::vector<std::array<double, 8>>& radar_data) {
+  float ratio = 0.0f;
+  for (unsigned i = 0U; i < radar_data.size(); i++) {
+    if (std::isnan(radar_data[i][3])) ratio += 1.0f;
+  }
+  return ratio / static_cast<float>(radar_data.size());
+}
 
+void Ionosradar::produceNANResult(int timestep) {
+  constexpr unsigned NS = 5U;
+  std::vector<std::array<double, NS>> data_interp(ni);
+
+  // Printing routine: Verbose with -v option. Plus, setting the array to nan.
+  for (unsigned i = 0U; i < ni; i++) {
+    data_interp[i] = {std::numeric_limits<double>::quiet_NaN(), 
+                      std::numeric_limits<double>::quiet_NaN(), 
+                      std::numeric_limits<double>::quiet_NaN(), 
+                      std::numeric_limits<double>::quiet_NaN(), 
+                      std::numeric_limits<double>::quiet_NaN()};
+    if (verbose)
+      printf("i=%d:\tISR(%5.3f,\t%5.3f,\t%.3e,\t%.3e,\t%.3e)\n", i, data_interp[i][0],
+              data_interp[i][1], data_interp[i][2], data_interp[i][3], data_interp[i][4]);
+  }
+
+  string sname = "_p" + std::to_string(shepard_parameter);
+  write_interpolated_time_selected_vals_vtk("SEL" + sname, num_scalar_data,
+                                            timestep, data_interp);
+  std::fill(data_interp.begin(), data_interp.end(), std::nan);
+}
 
 
