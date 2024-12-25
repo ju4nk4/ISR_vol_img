@@ -188,10 +188,9 @@ class Ionosradar {
                               std::vector<std::array<double, 8>>& data_array,
                               unsigned int time_step);
 
-  float Ionosradar::ratioNANne(
-      const std::vector<std::array<double, 8>>& radar_data);
+  float ratioNANne(const std::vector<std::array<double, 8>>& radar_data);
 
-  void Ionosradar::produceNANResult(int timestep);
+  void produceNANResult(int timestep);
 
   // -----------------------------------------------------------------------------------
 };  // Ionosradar
