@@ -827,7 +827,7 @@ void Ionosradar::generateInterpolationGrid(int e_nx, int e_ny, int e_nz) {
   printf("\t\t% 8.3f, % 8.3f, % 8.3f;\n", P_box[7].x, P_box[7].y, P_box[7].z);
   printf("\t];\n\n");
 
-  glm::dvec3 C_top, C_bottom, CT, CB;
+  glm::dvec3 C_top(0,0,0), C_bottom(0,0,0), CT(0,0,0), CB(0,0,0);
   for (unsigned int i = 0; i < 4; i++) {
     C_bottom = C_bottom + P_box[i];
     C_top = C_top + P_box[i + 4];
